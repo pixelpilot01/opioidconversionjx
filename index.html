@@ -12,7 +12,7 @@
             margin: 0;
             padding: 10px;
             background-color: #f4f4f4;
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -47,7 +47,7 @@
             border: 1px solid #ddd;
             border-radius: 4px;
             box-sizing: border-box;
-            font-size: 16px; /* Updated to prevent zoom on mobile */
+            font-size: 16px;
         }
 
         button {
@@ -59,7 +59,7 @@
             border: none;
             border-radius: 4px;
             cursor: pointer;
-            font-size: 16px; /* Updated to prevent zoom on mobile */
+            font-size: 16px;
         }
 
         button:hover {
@@ -115,6 +115,36 @@
 
         .btn-clear:hover {
             background: #7f8c8d;
+        }
+
+        /* New media query for smaller screens */
+        @media screen and (max-width: 360px) {
+            body {
+                padding: 5px;
+            }
+
+            .container {
+                padding: 10px;
+            }
+
+            h3 {
+                font-size: 1.2em;
+            }
+
+            .conversion-factors {
+                font-size: 0.8em;
+            }
+
+            input,
+            select,
+            button {
+                font-size: 14px;
+                padding: 6px;
+            }
+
+            .disclaimer {
+                font-size: 0.7em;
+            }
         }
     </style>
 </head>
@@ -205,8 +235,8 @@
                 <p><strong>Morphine Equivalent Daily Dose (MEDD):</strong> ${result.morphineEquivalentDose} mg</p>
             `;
 
-            if (result.morphineEquivalentDose > 50) {
-                resultHTML += `<p style="color: red;"><strong>Warning:</strong> The Morphine Equivalent Daily Dose exceeds 50 mg. Use caution and consider additional monitoring.</p>`;
+            if (result.morphineEquivalentDose > 75) {
+                resultHTML += `<p style="color: red;"> The Morphine Equivalent Daily Dose exceeds 75 mg. Consider reduction of equinalgesic dose to be on the safe side.</p>`;
             }
 
             document.getElementById('result').innerHTML = resultHTML;
