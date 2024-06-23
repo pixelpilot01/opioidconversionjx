@@ -117,8 +117,8 @@
             background: #7f8c8d;
         }
 
-        /* New media query for smaller screens */
-        @media screen and (max-width: 360px) {
+        /* Updated media query for better iPhone coverage */
+        @media screen and (max-width: 480px) {
             body {
                 padding: 5px;
             }
@@ -129,6 +129,28 @@
 
             h3 {
                 font-size: 1.2em;
+            }
+
+            .conversion-factors {
+                font-size: 0.85em;
+            }
+
+            input,
+            select,
+            button {
+                font-size: 16px;
+                padding: 8px;
+            }
+
+            .disclaimer {
+                font-size: 0.75em;
+            }
+        }
+
+        /* Additional media query for very small screens */
+        @media screen and (max-width: 320px) {
+            h3 {
+                font-size: 1.1em;
             }
 
             .conversion-factors {
@@ -194,7 +216,8 @@
         </div>
 
         <p class="disclaimer">
-            This tool is limited to oral formulations of the listed opioids. Consider reducing the calculated dose slightly
+            This tool is limited to oral formulations of the listed opioids. Consider reducing the calculated dose
+            slightly
             to be on the safe side.
         </p>
     </div>
@@ -242,7 +265,7 @@
             document.getElementById('result').innerHTML = resultHTML;
         });
 
-        document.getElementById('clearButton').addEventListener('click', function() {
+        document.getElementById('clearButton').addEventListener('click', function () {
             document.getElementById('inputDose').value = '';
             document.getElementById('inputOpioid').selectedIndex = 0;
             document.getElementById('targetOpioid').selectedIndex = 0;
